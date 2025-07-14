@@ -1,5 +1,7 @@
 formatVersion: 1
-inputs: {}
+inputs:
+  namespace:
+    type: string
 resources:
   CCI_Supervisor_Namespace_1:
     type: CCI.Supervisor.Namespace
@@ -8,7 +10,7 @@ resources:
         - 0
         - 0
     properties:
-      name: gitops-ns
+      name: ${input.namespace}
       existing: false
   CCI_Supervisor_Resource_1:
     type: CCI.Supervisor.Resource
