@@ -36,6 +36,16 @@ resources:
       regionName: ${input.region}
       vpcName: ${input.vpc}
       className: ${input.nsClass}
+      storageClasses:
+      - limit: 1024000Mi
+        name: vSAN Default Storage Policy
+      initialClassConfigOverrides:
+        zones:
+        - cpuLimit: 10000M
+          cpuReservation: 0M
+          memoryLimit: 40960Mi
+          memoryReservation: 0Mi
+          name: z-wld-a
   CCI_Supervisor_Resource_1:
     type: CCI.Supervisor.Resource
     metadata:
