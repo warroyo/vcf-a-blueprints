@@ -3,9 +3,26 @@ name: ArgoCD Namespace
 version: 1
 inputs:
   namespace:
-    title: namespace name
+    title: Namespace Name
     type: string
     default: gitops-ns
+  vpc:
+    title: VPC Name
+    type: string
+    enum:
+    -  us-west-Default-VPC
+  region:
+    title: Region Name
+    type: string
+    enum:
+    - us-west
+  nsClass:
+    title: namespace Class Name
+    type: string
+    enum:
+    - small
+    - medium
+    - large
 resources:
   CCI_Supervisor_Namespace_1:
     type: CCI.Supervisor.Namespace
@@ -16,6 +33,10 @@ resources:
     properties:
       name: ${input.namespace}
       existing: false
+      regionName: ${input.region}
+      existing: false
+      vpcName: ${input.vpc}
+      className: ${input.nsClass}
   CCI_Supervisor_Resource_1:
     type: CCI.Supervisor.Resource
     metadata:
