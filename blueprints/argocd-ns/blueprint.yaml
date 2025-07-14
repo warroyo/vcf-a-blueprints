@@ -34,7 +34,6 @@ resources:
       name: ${input.namespace}
       existing: false
       regionName: ${input.region}
-      existing: false
       vpcName: ${input.vpc}
       className: ${input.nsClass}
   CCI_Supervisor_Resource_1:
