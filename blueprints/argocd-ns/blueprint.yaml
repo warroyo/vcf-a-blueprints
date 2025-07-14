@@ -1,8 +1,9 @@
-
 formatVersion: 1
 inputs:
   namespace:
+    title: namespace name
     type: string
+    default: gitops-ns
 resources:
   CCI_Supervisor_Namespace_1:
     type: CCI.Supervisor.Namespace
