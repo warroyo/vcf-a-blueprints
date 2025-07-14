@@ -1,6 +1,6 @@
 formatVersion: 1
 name: ArgoCD Namespace
-version: 1
+version: 2
 inputs:
   namespace:
     title: Namespace Name
