@@ -1,1 +1,31 @@
 
+formatVersion: 1
+inputs:
+  namespace:
+    type: string
+resources:
+  CCI_Supervisor_Namespace_1:
+    type: CCI.Supervisor.Namespace
+    metadata:
+      layoutPosition:
+        - 0
+        - 0
+    properties:
+      name: ${input.namespace}
+      existing: false
+  CCI_Supervisor_Resource_1:
+    type: CCI.Supervisor.Resource
+    metadata:
+      layoutPosition:
+        - 0
+        - 0
+    properties:
+      context: ${resource.CCI_Supervisor_Namespace_1.id}
+      manifest:
+        apiVersion: argocd-service.vsphere.vmware.com/v1alpha1
+        kind: ArgoCD
+        metadata:
+          name: argocd-1
+          namespace: ${resource.CCI_Supervisor_Namespace_1.name}
+        spec:
+          version: 2.14.13+vmware.1-vks.1
